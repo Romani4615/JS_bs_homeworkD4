@@ -55,11 +55,22 @@ const createF1HTML = (racer) => {
 
 
 
-
+    // let abilityList = document.createElement('ul');
+    // for (const a of racer.abilities){
+    //     let htmlAbilities = document.createElement('li');
+    //     console.log(a)
+    //     htmlAbilities.innerHTML = a.ability.name;
+    //     abilityList.insertAdjacentElement('beforeend', htmlAbilities);
+    // }
+    // pokeDisplay.insertAdjacentElement('beforeend', abilityList)
 }
 
 //›››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››
 // ***  CONNECT FORM TO LOAD DATA FUNCTION
 //‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹
-// const form = document.getElementById('racerDataForm');
-// form.addEventListener('submit', loadData);
+const form = document.getElementById('racerDataForm');
+form.addEventListener('submit', loadData);
+
+//›››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››››
+// ***  PRINT DATA ON PAGE
+//‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹‹
