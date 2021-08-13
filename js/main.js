@@ -1,8 +1,9 @@
 // cons getData = async => {
 //     search
 // }
-const getData = async (season, round) => {
-    searchUrl = `https://ergast.com/api/f1/${season}/1/driverStandings.json`;
+
+const getData = async () => {
+    searchUrl = `https://ergast.com/api/f1/20201/driverStandings.json`;
     let response = await fetch(searchUrl);
     return response.json(); // return promise
 }
@@ -10,13 +11,13 @@ const loadData = async (e) => {
     e.preventDefault();
     console.log(e);
 
-    const f1Search = e.target
+    const f1Search = e.target[1]
     console.log(f1Search);
 
-    const fiData = await getData(f1Search);
-    console.log(fiData);
+    const f1Data = await getData(f1Search);
+    console.log(f1Data);
 
-    createF1HTML(fiData);
+    createF1HTML(f1Data);
 
 }
 
@@ -36,26 +37,35 @@ const createF1HTML = (racer) => {
     let htmlName = document.createElement('h3');
     htmlName.innerHTML = 'First Name: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.givenName;
     racerDisplay.insertAdjacentElement('beforeend', htmlName);
+
     let htmlFamilyName = document.createElement('h3');
-    htmlFamilyName.innerHTML = 'Family Name: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.familyName;
+    htmlFamilyName.innerHTML = 'Family Name: ' + familyName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.familyName;
     racerDisplay.insertAdjacentElement('beforeend', htmlFamilyName);
+
     let htmlPosition = document.createElement('h3');
-    htmlPosition.innerHTML = 'Position: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].position;
+    htmlPosition.innerHTML = 'Position: ' + racerPosition.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].position;
     racerDisplay.insertAdjacentElement('beforeend', htmlPosition);
+
     let htmlPoints = document.createElement('h3');
-    htmlPoints.innerHTML = 'Points: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].points;
+    htmlPoints.innerHTML = 'Points: ' + racerPoints.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].points;
     racerDisplay.insertAdjacentElement('beforeend', htmlPoints);
+
+    let htmlPermNum = document.createElement('h3');
+    htmlPermNum.innerHTML = 'Permanent Number: ' + racerPermNum.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.permanentNumber;
+    racerDisplay.insertAdjacentElement('beforeend', htmlPermNum);
+
     let htmlConstructor = document.createElement('h3');
-    htmlConstructor.innerHTML = 'Car Make: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].DriverConstructors[0].constructorId;
+    htmlConstructor.innerHTML = 'Car Make: ' + racerConstructorId.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].DriverConstructors[0].constructorId;
     racerDisplay.insertAdjacentElement('beforeend', htmlConstructor);
+    
     let htmlNationality = document.createElement('h3');
-    htmlNationality.innerHTML = 'Driver Nationality: ' + racerName.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.nationality;
+    htmlNationality.innerHTML = 'Driver Nationality: ' + racerNationality.MRdata.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.nationality;
     racerDisplay.insertAdjacentElement('beforeend', htmlNationality);
     
 
 
 
-    // let abilityList = document.createElement('ul');
+    // let Lists = document.createElement('ul');
     // for (const a of racer.abilities){
     //     let htmlAbilities = document.createElement('li');
     //     console.log(a)
